@@ -79,3 +79,7 @@ menu{
   display: flex;
   gap: 2rem;
 }
+#examples menu button.active{
+  background-color: #7925d3;
+  color: white;
+}

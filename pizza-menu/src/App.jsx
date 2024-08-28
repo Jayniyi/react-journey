@@ -73,23 +73,45 @@ function App() {
         <h2>examples</h2>
         <menu>
           <TabButton
-            onClick={() => handleClick("components")}
+            isSelected={selectedTopic === "components"}
+            onClick={() => handleClick()}
             label="component"
           />
-          <TabButton onClick={() => handleClick("jsx")} label="jsx" />
-          <TabButton onClick={() => handleClick("jsx")} label="jsx" />
-          <TabButton onClick={() => handleClick("props")} label="props" />
-          <TabButton onClick={() => handleClick("state")} label="state" />
+          <TabButton
+            isSelected={selectedTopic === "components"}
+            onClick={() => handleClick("jsx")}
+            label="jsx"
+          />
+          <TabButton
+            isSelected={selectedTopic === "components"}
+            onClick={() => handleClick("jsx")}
+            label="jsx"
+          />
+          <TabButton
+            isSelected={selectedTopic === "components"}
+            onClick={() => handleClick("props")}
+            label="props"
+          />
+          <TabButton
+            isSelected={selectedTopic === "state"}
+            onClick={() => handleClick("state")}
+            label="state"
+          />
           {/* <TabButton label="component" /> */}
         </menu>
-        <div id="tab-content">
-          <h3>{Example[selectedTopic].titles}</h3>
-          <p>{Example[selectedTopic].description}</p>
-          <pre>
-            <code>{Example[selectedTopic].code}</code>
-          </pre>
-        </div>
-        {/* {selectedTopic} */}
+        {!selectedTopic ? (
+          <p>please select a topic .</p>
+        ) : (
+          <div id="tab-content">
+            <h3>{Example[selectedTopic].titles}</h3>
+            <p>{Example[selectedTopic].description}</p>
+            <pre>
+              <code>{Example[selectedTopic].code}</code>
+            </pre>
+          </div>
+        )}
+        {selectedTopic}
+        {TabButton}
       </section>
     </div>
   );
